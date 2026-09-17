@@ -1,31 +1,20 @@
-import Link from "next/link";
-import React from "react";
+import React from 'react';
 
-interface PostProps {
-  post: {
-    id: number;
-    title: string;
-    shortDescription: string;
-  };
+interface PostPropsType {
+    post: {
+        title: string
+        body: string
+        
+    }
 }
 
-const Post = ({ post }: PostProps) => {
-  const {id, title } = post;
-  return (
-    <div>
-      <div className="card w-96 bg-base-100 card-md shadow-sm">
-        <div className="card-body">
-          <h2 className="card-title">{title}</h2>
-          <p></p>
-          <div className="justify-end card-actions">
-            <Link href={`/blogs/${id}`}>
-                <button className="btn btn-primary">Show Details</button>
-            </Link>
-          </div>
+const Post = ({post}: PostPropsType) => {
+    return (
+        <div className='border-2 m-2 border-gray-200'>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Post;
